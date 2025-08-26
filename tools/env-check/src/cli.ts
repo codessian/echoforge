@@ -13,17 +13,24 @@ program
   .option('--required-pnpm <num>', 'Minimum pnpm major version', (v) => Number(v))
   .parse(process.argv);
 
-const opts = program.opts();
+async function main() {
+  const opts = program.opts();
 
-const res = await runChecks({
-  json: !!opts.json,
-  openDocs: opts.openDocs !== false,
-  configPath: opts.config,
-  requiredNode: opts.requiredNode,
-  requiredPnpm: opts.requiredPnpm,
-});
+  const res = await runChecks({
+    json: !!opts.json,
+    openDocs: opts.openDocs !== false,
+    configPath: opts.config,
+    requiredNode: opts.requiredNode,
+    requiredPnpm: opts.requiredPnpm,
+  });
 
-if (opts.json) {
-  console.log(JSON.stringify(res, null, 2));
+  if (opts.json) {
+    console.log(JSON.stringify(res, null, 2));
+  }
+  process.exit(res.summary.errors > 0 ? 1 : 0);
 }
-process.exit(res.summary.errors > 0 ? 1 : 0);
+
+main().catch((err) => {
+  console.error('An unexpected error occurred:', err);
+  process.exit(1);
+});

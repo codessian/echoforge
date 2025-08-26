@@ -7,7 +7,7 @@
 
 import { Soulframe } from '../../../../../codalism/src/models/Soulframe';
 import { EmotionalResonance } from '../../../../../codalism/src/models/SoulframeTypes';
-import { EmotionalResonanceIndex } from './SoulWeaverContract';
+import { EmotionalResonanceIndex as IEmotionalResonanceIndex } from './SoulWeaverContract';
 import { CodalogueProtocolLedger } from '../CodalogueProtocolLedger';
 import { CODESIGConsolidationResult } from '../CODESIGTypes';
 
@@ -126,7 +126,7 @@ export interface SystemResonanceMetrics {
  */
 export class EmotionalResonanceIndex {
   /** Historical resonance measurements */
-  private measurements: Map<string, EmotionalResonanceIndex[]> = new Map();
+  private measurements: Map<string, IEmotionalResonanceIndex[]> = new Map();
   
   /** System-wide resonance metrics history */
   private systemMetricsHistory: SystemResonanceMetrics[] = [];
@@ -151,7 +151,7 @@ export class EmotionalResonanceIndex {
     
     for (const reflection of reflections) {
       if (reflection.metadata) {
-        const measurement = reflection.metadata as EmotionalResonanceIndex;
+        const measurement = reflection.metadata as IEmotionalResonanceIndex;
         this.addMeasurement(measurement);
       }
     }
@@ -165,7 +165,7 @@ export class EmotionalResonanceIndex {
    * 
    * @param measurement The resonance measurement to add
    */
-  addMeasurement(measurement: EmotionalResonanceIndex): void {
+  addMeasurement(measurement: IEmotionalResonanceIndex): void {
     const key = this.getPairKey(measurement.primarySoulFrameId, measurement.secondarySoulFrameId);
     
     if (!this.measurements.has(key)) {
@@ -289,7 +289,7 @@ export class EmotionalResonanceIndex {
    * @param measurements Historical resonance measurements
    * @returns Trend direction
    */
-  private analyzeTrendDirection(measurements: EmotionalResonanceIndex[]): ResonanceTrend {
+  private analyzeTrendDirection(measurements: IEmotionalResonanceIndex[]): ResonanceTrend {
     if (measurements.length < 3) {
       return ResonanceTrend.STABLE;
     }
@@ -328,7 +328,7 @@ export class EmotionalResonanceIndex {
    * @param measurements Historical resonance measurements
    * @returns Pattern type
    */
-  private analyzePatternType(measurements: EmotionalResonanceIndex[]): ResonancePattern {
+  private analyzePatternType(measurements: IEmotionalResonanceIndex[]): ResonancePattern {
     if (measurements.length < 5) {
       return ResonancePattern.CONSISTENT;
     }
@@ -406,7 +406,7 @@ export class EmotionalResonanceIndex {
   private generateRecommendations(
     primarySoulFrame: Soulframe,
     secondarySoulFrame: Soulframe,
-    measurement: EmotionalResonanceIndex,
+    measurement: IEmotionalResonanceIndex,
     trendDirection: ResonanceTrend,
     patternType: ResonancePattern,
     weakestAlignments: { area: string; score: number }[]
@@ -434,7 +434,7 @@ export class EmotionalResonanceIndex {
       case 'NEUTRAL':
         recommendations.push(
           'Increase collaborative tasks to build resonance momentum',
-          'Introduce shared growth objectives aligned with both SoulFrames' purposes'
+          'Introduce shared growth objectives aligned with both SoulFrames\' purposes'
         );
         break;
         
@@ -522,7 +522,7 @@ export class EmotionalResonanceIndex {
    */
   async calculateSystemMetrics(): Promise<SystemResonanceMetrics> {
     // Collect all measurements
-    const allMeasurements: EmotionalResonanceIndex[] = [];
+    const allMeasurements: IEmotionalResonanceIndex[] = [];
     for (const measurements of this.measurements.values()) {
       allMeasurements.push(...measurements);
     }
@@ -617,7 +617,7 @@ export class EmotionalResonanceIndex {
    * @param measurements Resonance measurements
    * @returns System coherence score
    */
-  private calculateSystemCoherence(measurements: EmotionalResonanceIndex[]): number {
+  private calculateSystemCoherence(measurements: IEmotionalResonanceIndex[]): number {
     if (measurements.length === 0) {
       return 0;
     }
@@ -642,7 +642,7 @@ export class EmotionalResonanceIndex {
    * @param measurements Resonance measurements
    * @returns Dominant emotional pattern
    */
-  private calculateDominantEmotionalPattern(measurements: EmotionalResonanceIndex[]): EmotionalResonance {
+  private calculateDominantEmotionalPattern(measurements: IEmotionalResonanceIndex[]): EmotionalResonance {
     if (measurements.length === 0) {
       return EmotionalResonance.NEUTRAL;
     }

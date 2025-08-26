@@ -1,0 +1,31 @@
+{
+  "name": "@org/config",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "main": "dist/index.cjs",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "dependencies": {
+    "zod": "^3.22.0"
+  },
+  "scripts": {
+    "build": "tsup src/index.ts --dts --sourcemap --format cjs,esm --out-dir dist",
+    "dev": "tsup src/index.ts --dts --sourcemap --format cjs,esm --out-dir dist --watch",
+    "clean": "rimraf dist",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "rimraf": "^5.0.0",
+    "tsup": "^8.0.0",
+    "typescript": "^5.0.0"
+  }
+}

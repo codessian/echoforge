@@ -21,6 +21,9 @@ export * from './messaging/AgentMailbox';
 export * from './messaging/InMemoryMessageStore';
 export * from './messaging/IndexedDBMessageStore';
 
+// Export Metrics and Monitoring components
+export * from './metrics';
+
 // We don't export CLI tools directly as they're meant to be run as scripts
 
 // Export version information

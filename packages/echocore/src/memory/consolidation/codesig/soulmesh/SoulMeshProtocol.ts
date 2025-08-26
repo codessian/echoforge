@@ -59,7 +59,10 @@ export class SoulMeshProtocol extends EventEmitter {
       connectionStrength: 1.0, // Self connection is always perfect
       loadFactor: 0.0,
       version: '1.0.0' // This would be dynamically determined
-    /**
+    };
+  }
+
+  /**
    * Handles peer conflict merges
    * This addresses the critical blocking issue identified in the validation log
    */
@@ -327,11 +330,8 @@ export class SoulMeshProtocol extends EventEmitter {
       
       console.error(`State update failed for nodes: ${failedNodes.join(', ')}`);
     }
-  };
-    
-    this.nodes.set(config.nodeId, selfNode);
   }
-  
+
   /**
    * Initializes the SoulMesh Protocol
    */
@@ -612,7 +612,6 @@ export class SoulMeshProtocol extends EventEmitter {
    */
   public async getComponentState(componentId: string): Promise<any> {
     return this.componentStates.get(componentId) || null;
-  }
   }
   
   /**
@@ -1457,11 +1456,4 @@ export class SoulMeshProtocol extends EventEmitter {
       return false;
     }
   }
---- a/src/SoulMeshProtocol.ts
-+++ b/src/SoulMeshProtocol.ts
-@@ -1007,3 +1007,5 @@
-     }
-   }
-
-+import { MetricsEngine } from '../MetricsEngine';
-+
+}
