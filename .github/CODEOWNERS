@@ -1,47 +1,9 @@
-# CODEOWNERS
-# Lines are: <path pattern> <@org/team or @user> [...additional owners]
-# The last matching pattern takes precedence.
-
+# See https://docs.github.com/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
 # Default owners for everything
-* @echoforge/maintainers
+*       @AvaPrime @codessa-ai/owners
 
-# Apps
-/apps/ @echoforge/app-maintainers
-/apps/echo-terminal/ @echoforge/cli-maintainers
-/apps/dashboard/ @echoforge/web-maintainers
-/apps/echo-cloud/ @echoforge/infra
+# Example: UI bits
+/apps/dashboard/**  @codessa-ai/frontend
 
-# Packages (library ownership)
-/packages/ @echoforge/pkg-maintainers
-/packages/echocore/ @echoforge/agents-maintainers
-/packages/forgekit/ @echoforge/core-utils
-/packages/codalism/ @echoforge/research
-/packages/validator/ @echoforge/qa
-/packages/blueprint/ @echoforge/devx
-/packages/mirror/ @echoforge/sync
-/packages/recomposer/ @echoforge/research
-
-# Python agents and ops scripts
-/agents/ @echoforge/ai-agents
-/scripts/ @echoforge/ops
-
-# Research/prototypes
-/echoforge/ @echoforge/research
-
-# Documentation and policies
-/docs/ @echoforge/docs
-/README.md @echoforge/docs @echoforge/maintainers
-/AGENTS.md @echoforge/docs
-/CONTRIBUTING.md @echoforge/docs @echoforge/maintainers
-/SECURITY.md @echoforge/security @echoforge/maintainers
-
-# Repo configuration & CI
-/.github/ @echoforge/infra @echoforge/maintainers
-/.github/workflows/ @echoforge/infra
-/package.json @echoforge/maintainers
-/pnpm-lock.yaml @echoforge/infra
-/turbo.json @echoforge/infra
-/vitest.config.ts @echoforge/qa @echoforge/maintainers
-/eslint.config.js @echoforge/qa @echoforge/maintainers
-/tsconfig.json @echoforge/maintainers
-/tsconfig.base.json @echoforge/maintainers
+# Example: core engine
+/packages/echocore/**  @codessa-ai/core
