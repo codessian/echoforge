@@ -1,0 +1,8 @@
+{
+  "name": "echoforge",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:20",
+  "features": { "ghcr.io/devcontainers/features/git:1": {} },
+  "postCreateCommand": "corepack enable && corepack prepare pnpm@9.14.4 --activate && pnpm -w install",
+  "mounts": ["source=${localWorkspaceFolder}/.pnpm-store,target=/home/node/.pnpm-store,type=bind"],
+  "remoteUser": "node"
+}
