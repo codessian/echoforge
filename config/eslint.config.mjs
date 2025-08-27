@@ -23,3 +23,5 @@ export default ts.config(js.configs.recommended, ...ts.configs.recommended, {
   },
   ignores: ['**/dist/**', '**/coverage/**', '**/node_modules/**', '**/*.d.ts'],
 });
+
+export default [{ ignores: ['**/dist/**','**/node_modules/**'] }, ... (globalThis.__ESLINT_CONFIG__ || [])];

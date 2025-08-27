@@ -4,7 +4,9 @@
   "private": true,
   "type": "commonjs",
   "main": "dist/index.mjs",
-  "bin": { "ef-env": "dist/cli.mjs" },
+  "bin": {
+    "ef-env": "dist/cli.mjs"
+  },
   "scripts": {
     "build": "tsup src/index.ts src/cli.ts --config ../../tsup.lib.ts --no-dts",
     "dev": "tsup --config ../../tsup.lib.ts --watch",
@@ -20,7 +22,8 @@
   },
   "devDependencies": {
     "@types/node": "^22.5.0",
-    "tsup": "^8.0.2",
+    "rimraf": "^5.0.10",
+    "tsup": "^8.5.0",
     "typescript": "^5.4.0",
     "vitest": "^3.2.4"
   }

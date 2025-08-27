@@ -28,7 +28,7 @@
     "prettier": "prettier --write .",
     "format": "prettier --write .",
     "release": "changeset version && pnpm -w install && turbo run build && changeset publish",
-    "postinstall": "bash ./scripts/check-env.sh || true && pnpm -F @echoforge/env-check run check || true",
+    "postinstall": "node scripts/postinstall.mjs",
     "test:env-check": "pnpm -F @echoforge/env-check run test",
     "init:env-check": "node scripts/init-env-check.js"
   },
@@ -53,6 +53,8 @@
     "tsup": "^8.0.2",
     "turbo": "^2.5.4",
     "typescript": "^5.9.2",
+    "typescript-eslint": "^8.41.0",
     "vitest": "^3.2.4"
-  }
+  },
+  "type": "module"
 }

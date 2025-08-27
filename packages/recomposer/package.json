@@ -26,15 +26,15 @@
     "uuid": "^9.0.0"
   },
   "devDependencies": {
+    "rimraf": "^5.0.10",
+    "tsup": "^8.5.0",
     "typescript": "^5.0.4",
-    "rimraf": "^4.4.1",
-    "vitest": "^3.2.4",
-    "tsup": "^8.0.2"
+    "vitest": "^3.2.4"
   },
   "peerDependencies": {
-    "@echoforge/echocore": "workspace:*",
-    "@echoforge/codalism": "workspace:*",
     "@echoforge/blueprint": "workspace:*",
+    "@echoforge/codalism": "workspace:*",
+    "@echoforge/echocore": "workspace:*",
     "@echoforge/validator": "workspace:*"
   },
   "private": true

@@ -28,17 +28,16 @@
   ],
   "author": "EchoForge Team",
   "license": "MIT",
-  "dependencies": {},
   "devDependencies": {
+    "rimraf": "^5.0.10",
+    "tsup": "^8.5.0",
     "typescript": "^5.0.4",
-    "rimraf": "^4.4.1",
-    "vitest": "^3.2.4",
-    "tsup": "^8.0.2"
+    "vitest": "^3.2.4"
   },
   "peerDependencies": {
-    "@echoforge/echocore": "workspace:*",
+    "@echoforge/blueprint": "workspace:*",
     "@echoforge/codalism": "workspace:*",
-    "@echoforge/blueprint": "workspace:*"
+    "@echoforge/echocore": "workspace:*"
   },
   "private": false,
   "sideEffects": false

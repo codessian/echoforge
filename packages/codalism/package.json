@@ -27,23 +27,23 @@
   },
   "dependencies": {
     "@echoforge/echocore": "workspace:*",
-    "uuid": "^9.0.1",
     "chalk": "^4.1.2",
     "commander": "^11.1.0",
     "figlet": "^1.7.0",
     "gradient-string": "^2.0.2",
     "marked": "^11.1.0",
-    "nanospinner": "^1.1.0"
+    "nanospinner": "^1.1.0",
+    "uuid": "^9.0.1"
   },
   "devDependencies": {
-    "typescript": "^5.4.0",
-    "rimraf": "^5.0.0",
-    "vitest": "^3.2.4",
-    "@types/uuid": "^9.0.8",
     "@types/figlet": "^1.5.8",
     "@types/gradient-string": "^1.1.5",
+    "@types/uuid": "^9.0.8",
+    "rimraf": "^5.0.10",
     "ts-node": "^10.9.2",
-    "tsup": "^8.0.2"
+    "tsup": "^8.5.0",
+    "typescript": "^5.4.0",
+    "vitest": "^3.2.4"
   },
   "private": true
 }

@@ -1,0 +1,16 @@
+name: Codex task
+description: Use for Codex-created tasks
+labels: ["codex","automation"]
+body:
+  - type: input
+    id: goal
+    attributes: { label: Goal }
+  - type: textarea
+    id: constraints
+    attributes: { label: Constraints }
+  - type: textarea
+    id: deliverables
+    attributes: { label: Deliverables }
+  - type: textarea
+    id: acceptance
+    attributes: { label: Acceptance Criteria }
