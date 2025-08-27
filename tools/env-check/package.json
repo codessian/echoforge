@@ -8,7 +8,7 @@
     "ef-env": "dist/cli.mjs"
   },
   "scripts": {
-    "build": "tsup src/index.ts src/cli.ts --config ../../tsup.lib.ts --no-dts",
+    "build": "tsup src/index.ts --config ../../tsup.lib.ts --no-dts && tsup src/cli.ts --format esm --target node22 --no-dts",
     "dev": "tsup --config ../../tsup.lib.ts --watch",
     "lint": "eslint \"src/**/*.ts\"",
     "check": "node dist/cli.mjs",

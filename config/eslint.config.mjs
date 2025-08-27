@@ -1,27 +1,16 @@
-import js from '@eslint/js';
-import ts from 'typescript-eslint';
-import globals from 'globals';
+import js from "@eslint/js";
+import tseslint from "typescript-eslint";
 
-export default ts.config(js.configs.recommended, ...ts.configs.recommended, {
-  languageOptions: { globals: globals.node },
-  rules: {
-    'no-restricted-imports': [
-      'error',
-      {
-        patterns: [
-          '../*',
-          '../../*', 
-          '**/src/*',
-          '*/src/*',
-          '@echoforge/*/src/*'
-        ],
-      },
-    ],
-    '@typescript-eslint/explicit-function-return-type': 'off',
-    '@typescript-eslint/no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],
-    'no-console': ['warn', { allow: ['warn', 'error'] }]
-  },
-  ignores: ['**/dist/**', '**/coverage/**', '**/node_modules/**', '**/*.d.ts'],
-});
-
-export default [{ ignores: ['**/dist/**','**/node_modules/**'] }, ... (globalThis.__ESLINT_CONFIG__ || [])];
+export default [
+  { ignores: ["**/dist/**", "**/node_modules/**"] },
+  js.configs.recommended,
+  ...tseslint.configs.recommended,
+  {
+    languageOptions: {
+      parserOptions: { ecmaVersion: "latest", sourceType: "module" }
+    },
+    rules: {
+      // add repo rules here as needed
+    }
+  }
+];
